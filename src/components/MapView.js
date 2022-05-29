@@ -27,23 +27,28 @@ const places = [
 export const MapView = () => {
 
   const [mapState, setMapState] = useState({
-    currentLocation: {lat: 41.40251282759341, lng: 2.1943142112846066},
+    //currentLocation: {lat: 41.40251282759341, lng: 2.1943142112846066},
+    currentLocation: {},
     zoom: 16
-  })
+  });
 
   const location = useLocation();
   
 
   useEffect(()=>{
     if(location.state.lat && location.state.lng){
-      console.log(location.state)
-      setMapState({
-        ...mapState,
-        currentLocation:location.state
+      console.log("location", location.state)
+      
+      setMapState((oldState) => {
+        const currentLocation = {
+          lat: location.state.lat,
+          lng: location.state.lng
+        }
+        return {...oldState, currentLocation, patito: 'patito'}  
       });
-      console.log(mapState);
+      console.log("estado", mapState);
     }    
-  },[location]);
+  }, []);
 
 
   return (
