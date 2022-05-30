@@ -27,8 +27,8 @@ const places = [
 export const MapView = () => {
 
   const [mapState, setMapState] = useState({
-    //currentLocation: {lat: 41.40251282759341, lng: 2.1943142112846066},
-    currentLocation: {},
+    currentLocation: {lat: 41.40251282759341, lng: 2.1943142112846066},
+    //currentLocation: {},
     zoom: 16
   });
 
